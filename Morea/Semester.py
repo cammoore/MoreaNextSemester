@@ -18,3 +18,28 @@ class Semester(object):
 
     def __repr__(self):
         return self.__str__()
+
+    def isInSemester(self, d):
+        """Returns True if d is in this semester."""
+        return self.firstDay <= d and d <= self.endOfFinals
+
+    def hasBreak(self):
+        """Returns True if the semester has a springBreak."""
+        return self.springBreak != None
+
+
+    def getWeek(self, d):
+        """Returns the week in the semester for the given day."""
+        if self.isInSemester(d):
+            if self.springBreak != None:
+                if d >= self.springBreak[0] and d <= self.springBreak[1]:
+                    return None
+                elif d < self.springBreak[0]:
+                    return (d - self.firstDay).days / 7 + 1
+                elif d > self.springBreak[1]:
+                    return (d - self.firstDay).days / 7
+            else:
+                return (d - self.firstDay).days / 7 + 1
+
+        else:
+            return None

@@ -114,7 +114,6 @@ class ClassInstance(object):
         except KeyError:
             print "No experineces?"
 
-
     def getNumModules(self):
         return len(self.entities[Types.module.name])
 
