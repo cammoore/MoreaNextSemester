@@ -8,16 +8,19 @@ class SemesterFactory(object):
 
     def __init__(self, filePath=None):
         """Create a new instance"""
-        if filePath == None:
+        if filePath is None:
             filePath = "./uh-semesters.json"
         self.filePath = filePath
         self.semesters = {}
         for s in self.buildSemesters(self.filePath):
             self.semesters[self.shortName(s.name)] = s
 
-
     def shortName(self, semesterName):
+        """Returns the short name for the semester s|fYY."""
         return semesterName[:1].lower() + semesterName[len(semesterName) - 2:]
+
+    def getSemesterFromName(self, shortName):
+        return self.semesters[shortName]
 
     def buildSemesters(self, filePath):
         """Builds an array of Semesters from the given path."""
@@ -78,17 +81,27 @@ class SemesterFactory(object):
     def getDelta(self, s1, s2, week):
         """Returns the timedelta for semester 1 to semester 2 and the given week."""
         if s1.hasBreak():
-            if (s2.hasBreak()):
+            if s2.hasBreak():
                 return s2.firstDay - s1.firstDay
             elif week < s1.getWeek(s1.springBreak[0] + timedelta(days=7)):
                 return s2.firstDay - s1.firstDay
             else:
                 return s2.firstDay - s1.firstDay - timedelta(days=7)
         else:
-            if (s2.hasBreak()):
+            if s2.hasBreak():
                 if week < s2.getWeek(s2.springBreak[0] + timedelta(days=7)):
                     return s2.firstDay - s1.firstDay
                 else:
                     return s2.firstDay - s1.firstDay + timedelta(days=7)
             else:
                 return s2.firstDay - s1.firstDay
+
+    def getSemester(self, d):
+        """Returns the Semester that the date d falls in or None if the date is outside all the semesters."""
+        if d is None:
+            return None
+        for s in self.semesters:
+            semester = self.semesters[s]
+            if semester.isInSemester(d):
+                return semester
+        return None

@@ -21,12 +21,13 @@ class Semester(object):
 
     def isInSemester(self, d):
         """Returns True if d is in this semester."""
-        return self.firstDay <= d and d <= self.endOfFinals
+        if d is not None:
+            return self.firstDay <= d and d <= self.endOfFinals
+        return False
 
     def hasBreak(self):
         """Returns True if the semester has a springBreak."""
         return self.springBreak != None
-
 
     def getWeek(self, d):
         """Returns the week in the semester for the given day."""
@@ -43,3 +44,8 @@ class Semester(object):
 
         else:
             return None
+
+    def getShortName(self):
+        """Returns the short name for the semester."""
+        return self.name[:1].lower() + self.name[len(self.name) - 2:]
+

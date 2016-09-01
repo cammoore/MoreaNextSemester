@@ -1,0 +1,19 @@
+---
+morea_id: assessment-Q09
+morea_type: assessment
+title: "Q09: LinkedList"
+published: True
+morea_start_date: "2016-09-21T10:30:00"
+morea_outcomes_assessed: 
+  - outcome-lists
+  - outcome-iterators
+  - outcome-big-O
+morea_labels: 
+  - "Quiz"
+morea_chartjs_caption:   |
+  This assessment will verify that students understand the basics of LinkedList implementation of the List interface.
+morea_chartjs_labels: '["Excellent", "Satisfactory", "Borderline", "Unsatisfactory"]'
+morea_chartjs_data: "[0, 0, 0, 0]"
+---
+
+{%  include assessment-chartjs.html  %}

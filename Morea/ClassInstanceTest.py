@@ -27,12 +27,21 @@ def main(argv=None):
         # for e in instance.entities["experience"]:
         #     print e.title, e.getStartWeekDay()
         # print instance.readingDays
+        for r in instance.entities[Types.reading.name]:
+            if r.startsOnFriday():
+                print r
+        for e in instance.entities[Types.experience.name]:
+            if e.startsOnFriday():
+                print e
         # print instance.experienceDays
         print instance.getMeetingDays()
         # print instance.homeworks
-        print instance.startDate
-        for m in instance.entities[Types.module.name]:
-            print m, m.startsOnSaturday(), m.endsOnFriday()
+        print 'Start Date', instance.startDate
+        print instance.getSemester().getShortName()
+        print 'is MW', instance.isMW()
+        print 'is TR', instance.isTR()
+        # for m in instance.entities[Types.module.name]:
+        #     print m, m.startsOnSaturday(), m.endsOnFriday(), m.getDurationInDays()
 
 
     except getopt.error, msg:

@@ -1,8 +1,8 @@
 from tempfile import mkstemp
 from os import close, remove
 from shutil import move
-
 from enum import Enum
+
 
 class Types(Enum):
     module = 1
@@ -11,6 +11,7 @@ class Types(Enum):
     experience = 4
     assessment = 5
     prerequisite = 6
+
 
 class Entity(object):
     """Represents a Morea Entity with an id, title, type, optional morea_start_date, morea_end_date."""
@@ -34,7 +35,6 @@ class Entity(object):
         self.filePath = filePath
         self.startDate = startDate
         self.endDate = endDate
-
 
     def __str__(self):
         return "MoreaEntity[id={0}, title={1}, type={2}, startDate={3}, endDate={4}]".format(self.id, self.title, self.type, self.startDate, self.endDate)
@@ -80,8 +80,10 @@ class Entity(object):
         return False
 
     def endsOnFriday(self):
-        """Returns True if the entity starts on Saturday."""
-        return self.endsOnDay(5) or self.endDate.isoweekday() == 6 and self.endDate.hour == 0 and self.endDate.minute == 0
+        """Returns True if the entity ends on Friday."""
+        if self.endDate != None:
+            return self.endsOnDay(5) or self.endDate.isoweekday() == 6 and self.endDate.hour == 0 and self.endDate.minute == 0
+        return False
 
     def startsOnDay(self, isoDay):
         """Returns True if the entity starts on the given isoDay"""
@@ -89,9 +91,20 @@ class Entity(object):
             return True
         return False
 
+    def startsOnFriday(self):
+        """Returns True if the entity starts on Friday."""
+        return self.startsOnDay(5)
+
     def startsOnSaturday(self):
         """Returns True if the entity starts on Saturday."""
         return self.startsOnDay(6)
+
+    def startsMonThur(self):
+        """Returns true if the entity starts Monday - Thursday"""
+        if self.startDate is not None:
+            if self.startDate.isoweekday() < 6:
+                return True
+        return False
 
     def isModWeekLong(self):
         """Returns True if the duration is a multiple of weeks."""

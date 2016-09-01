@@ -1,6 +1,6 @@
 import unittest
 
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 from SemesterFactory import SemesterFactory
 
@@ -44,6 +44,25 @@ class SemesterFactoryTest(unittest.TestCase):
                 self.assertEqual(delta.days, 140, "week {} expected  got {}".format(w, delta.days))
             else:
                 self.assertEqual(delta.days, 147, "week {} expected  got {}".format(w, delta.days))
+
+    def testGetSemester(self):
+        d = datetime.strptime('2016-08-26', '%Y-%m-%d')
+        factory = SemesterFactory()
+        self.assertIsNotNone(factory)
+        s1 = factory.semesters['f16']
+        ans = factory.getSemester(d)
+        self.assertEqual(s1, ans, "expecting {} got {}".format(ans, s1))
+        d = datetime.strptime('2016-07-26', '%Y-%m-%d')
+        ans = factory.getSemester(d)
+        self.assertEqual(ans, None, "expecting None got {}".format(ans))
+        d = datetime.strptime('2017-03-26', '%Y-%m-%d')
+        ans = factory.getSemester(d)
+        s1 = factory.semesters['s17']
+        self.assertEqual(s1, ans, "expecting {} got {}".format(ans, s1))
+        d = datetime.strptime('2017-10-26', '%Y-%m-%d')
+        ans = factory.getSemester(d)
+        s1 = factory.semesters['f17']
+        self.assertEqual(s1, ans, "expecting {} got {}".format(ans, s1))
 
 
 

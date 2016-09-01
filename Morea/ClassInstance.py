@@ -5,6 +5,7 @@ from os.path import join
 from datetime import datetime
 
 from Entity import Entity, Types
+from SemesterFactory import SemesterFactory
 
 
 class ClassInstance(object):
@@ -113,6 +114,18 @@ class ClassInstance(object):
                     self.homeworks.append(e)
         except KeyError:
             print "No experineces?"
+        self.semesterFactory = SemesterFactory()
+
+    def __str__(self):
+        return "{0}: {1} modules | {2} outcomes | {3} readings | {4} experiences | {5} assessments ".format(self.getSemester().name,
+            self.getNumModules(),
+                                                                                                       self.getNumOutcomes(),
+                                                                                                       self.getNumReadings(),
+                                                                                                       self.getNumExperiences(),
+                                                                                                       self.getNumAssessments())
+
+    def __repr__(self):
+        return self.__str__()
 
     def getNumModules(self):
         return len(self.entities[Types.module.name])
@@ -138,3 +151,24 @@ class ClassInstance(object):
             ret.append(calendar.day_name[k - 1])
         return ret
 
+    def isMW(self):
+        """Returns True if this class is a Monday Wednesday class."""
+        days = self.getMeetingDays()
+        if len(days) == 2:
+            if days[0] == "Monday" and days[1] == "Wednesday":
+                return True
+        elif len(days) == 3:
+            if days[0] == "Monday" and days[1] == "Wednesday":
+                return True
+        return False
+
+    def isTR(self):
+        """Returns True if this class is a Monday Wednesday class."""
+        days = self.getMeetingDays()
+        if len(days) == 2 and days[0] == "Tuesday" and days[1] == "Thursday":
+            return True
+        return False
+
+    def getSemester(self):
+        """Returns the Semester this course is in."""
+        return self.semesterFactory.getSemester(self.startDate)
