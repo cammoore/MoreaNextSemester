@@ -127,6 +127,26 @@ class ClassInstance(object):
     def __repr__(self):
         return self.__str__()
 
+    def __eq__(self, other):
+        if type(other) is type(self):
+            retVal = self.getSemester() == other.getSemester()
+            retVal = retVal and self.startDate == other.startDate
+            for key in Types:
+                try:
+                    retVal = retVal and self.entities[key.name] == other.entities[key.name]
+                except KeyError:
+                    retVal = retVal and True
+            return retVal
+        return False
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def __cmp__(self, other):
+        if type(other) is type(self):
+            return self.__dict__ == other.__dict__
+        return False
+
     def getNumModules(self):
         return len(self.entities[Types.module.name])
 

@@ -42,6 +42,16 @@ class Entity(object):
     def __repr__(self):
         return self.__str__()
 
+    def __eq__(self, other):
+        if type(other) is type(self):
+            return self.id == other.id and self.title == other.title and self.type == other.type and \
+                   self.startDate == other.startDate and self.endDate == other.endDate
+
+
+    def hasDate(self):
+        """Returns True if the entity has a startDate or endDate."""
+        return self.startDate is not None or self.endDate is not None
+
     def getStartWeekDay(self):
         """Returns the ISO day of the week for the startDate. Monday = 1, Sunday = 7."""
         if self.startDate != None:
@@ -116,7 +126,6 @@ class Entity(object):
         """Returns True if the duration starts on Saturday and ends on Friday"""
         return self.startsOnSaturday() and self.endsOnFriday()
 
-
     def updateFileDates(self, delta):
         """Updates the morea_start_date and morea_end_date lines in the file associated with this entity."""
         fh, abs_path = mkstemp()
@@ -138,9 +147,9 @@ class Entity(object):
                     else:
                         new_file.write(line)
         close(fh)
-        #Remove original file
+        # Remove original file
         remove(self.filePath)
-        #Move new file
+        # Move new file
         move(abs_path, self.filePath)
 
     def __processStartDateLine(self, line, delta):

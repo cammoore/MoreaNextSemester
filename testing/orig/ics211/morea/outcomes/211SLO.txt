@@ -1,0 +1,21 @@
+Effective Fall 2015, each university and community college campus offering this course has agreed to:
+
+Course alpha and number: ICS 211 (3 or 4 credits) or CS 151 (3 credits)
+
+Course title: Introduction to Computer Science II
+
+Course description: Reinforce and strengthen problem-solving skills using abstract data types and introduce software development practices. Emphasize the use of searching and sorting algorithms and their complexity, recursion, object-oriented programming, and data structures.
+
+Prerequisite: ICS 111 with a grade of “B” or higher, or instructor consent.
+
+Student Learning Outcomes
+
+1. Use and implement abstract data types such as lists, stacks, queues, and trees.
+
+2. Select the appropriate searching or sorting algorithm based on the algorithm’s behavior.
+
+3. Develop recursive algorithms and programs.
+
+4. Use standard libraries or packages as well as advanced object-oriented programming techniques (polymorphism, inheritance, and encapsulation).
+
+5. Produce robust and secure programs using exception handling and extensive program testing.

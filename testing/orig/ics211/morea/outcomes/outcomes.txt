@@ -1,0 +1,54 @@
+
+  - slo-data-structures               Use and implement abstract data types such as lists, stacks, queues, and trees.
+
+* Select the appropriate searching or sorting algorithm based on the algorithm’s behavior.
+
+* Develop recursive algorithms and programs.
+
+* Use standard libraries or packages as well as advanced object-oriented programming techniques (polymorphism, inheritance, and encapsulation).
+
+* Produce robust and secure programs using exception handling and extensive program testing.
+
+#### Course Specific SLOs
+
+* Understand the goals, structures, and procedures for learning in ICS 211.
+
+* To learn basics of programming with a modern programming language, Java.
+
+* To learn and uses the basics of algorithm analysis, including big-O notation.
+
+* To learn and understand the **array** standard data structure. Know the standard interface for an **Array**.
+
+* To learn and implement standard algorithms for sorting arrays.
+
+* To understand Java collection classes and the basics of memory management.
+
+* To learn and implement the **List** standard data structure. Know the standard interface for a **List**.
+
+* To learn and implement the **Iterator** and **Iterable**. Know the standard interface for an **Iterator** and **Iterable**.
+
+* To learn and implement the **Queue** standard data structure. Know the standard interface for a **Queue**.
+
+* To learn and implement the **Stack** standard data structure. Know the standard interface for a **Stack**.
+
+  * To learn and convert between prefix, infix, and postfix notation.
+
+* To learn and implement the **Tree** standard data structure.
+
+  * To learn and implement pre-order, in-order, and post-order traversals.
+
+* To learn and implement the **Hash Map** standard data structure. Know the difference between open addressing and chained maps.
+
+* To understand recursion and how to develop recursive algorithms and programs.
+
+* To learn and implement standard algorithms for searching.
+
+#### ABET Student Outcomes
+
+* An ability to apply mathematical foundations, algorithmic principles, and computer science theory to the modeling and design of computer-based systems.
+
+* An ability to define the computing requirements of a problem and to design appropriate solutions based on established design principles and with an understanding of the tradeoffs involved in design choices.
+
+* An ability to use sound development principles to implement computer-based and software systems of varying complexity, and to evaluate such systems.
+
+* An ability to use current techniques, skills, and tools necessary for computing practice.

@@ -1,0 +1,5 @@
+Assignment 3 the circular double linked list with sorting may have been too difficult. The quizzes for linked list should have been double linked lists not single. Or the Wednesday quiz should have been double linked list. That way I could talk about them in my solution.
+
+Think about the schedule. Are we going too fast?
+
+I think having simple sorting is working. The students get much more practice with the algorithms since they have to implement them three times.

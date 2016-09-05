@@ -19,6 +19,19 @@ class Semester(object):
     def __repr__(self):
         return self.__str__()
 
+    def __eq__(self, other):
+        if type(other) is type(self):
+            return self.__dict__ == other.__dict__
+        return False
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def __cmp__(self, other):
+        if type(other) is type(self):
+            return self.__dict__ == other.__dict__
+        return False
+
     def isInSemester(self, d):
         """Returns True if d is in this semester."""
         if d is not None:

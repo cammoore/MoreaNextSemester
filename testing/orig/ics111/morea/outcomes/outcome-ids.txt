@@ -1,0 +1,19 @@
+  - so-apply-mathematical-foundations     # Demonstrate an ability to apply mathematical foundations, algorithmic principles, and computer science theory to the modeling and design of computer-based systems.
+  - so-define-computing-requirements      # Demonstrate an ability to define the computing requirements of a problem and to design appropriate solutions based on established design principles and with an understanding of the tradeoffs involved in design choices.
+  - so-use-sound-development-principles   # Demonstrate an ability to use sound development principles to implement computer-based and software systems of varying complexity, and to evaluate such systems.
+  - so-use-current-techniques             # Demonstrate an ability to use current techniques, skills, and tools necessary for computing practice.
+
+  - slo-programming                       # Use an appropriate programming environment to design, code, compile, run and debug computer programs.
+  - slo-problem-solving                   # Demonstrate basic problem solving skills: analyzing problems, modeling a problem as a system of objects, creating algorithms, and implementing models and algorithms in an object-oriented computer language
+  - slo-program-flow                      # Illustrate basic programming concepts such as program flow and syntax of a high-level general purpose language.
+  - slo-relationships                     # Identify relationships between computer systems programming and programming languages.
+  - slo-primitive-data-types              # Demonstrate working with primitive data types, strings and arrays.
+
+  - outcome-translate-problem-code        # To learn how to take a problem, figure out the algorithm to solve it, the write the code.
+  - outcome-understand-basics-java        # To learn basics of programming with a modern programming language, Java.
+  - outcome-program-java                  # To learn how to produce robust programs in Java using exception handling and extensive program testing.
+  - outcome-fundamentals-of-computers     # Understand the fundamentals how a computer works.
+  - outcome-java-development-environment  # Understand how to install and use a good Java development environment.
+  - outcome-course-structure              # Understand the goals, structures, and procedures for learning in ICS 111.
+
+  - outcome-present                       # To learn basics of presenting Java code to an audience.

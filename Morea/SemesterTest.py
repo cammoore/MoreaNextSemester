@@ -40,5 +40,12 @@ class SemesterTest(unittest.TestCase):
         s = SemesterFactory().semesters['f15']
         self.assertFalse(s.hasBreak())
 
+    def testEquality(self):
+        s1 = SemesterFactory().semesters['s16']
+        s2 = SemesterFactory().semesters['f15']
+        self.assertFalse(s1 == s2)
+        s3 = SemesterFactory().semesters['f15']
+        self.assertTrue(s3 == s2)
+
 if __name__ == '__main__':
     unittest.main()
