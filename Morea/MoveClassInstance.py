@@ -6,10 +6,10 @@ from SemesterFactory import SemesterFactory
 class MoveClassInstance(object):
     """Moves a class instance from one semester to another. This updates the files inplace."""
 
-    def __init__(self, ci, newSemester, weekDays=None):
+    def __init__(self, ci, newSemester, weekDays=None, semesterPath=None):
         """Creates a new instance with the ClassInstance, newSemester and optional weekDays. If weekDays is not None,
         the the class meetings will be updated to the new weekDays ('MW' or 'TR')."""
-        self.factory = SemesterFactory()
+        self.factory = SemesterFactory(semesterPath)
         self.classInstance = ci
         self.oldSemester = ci.getSemester()
         self.newSemester = newSemester

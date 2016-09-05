@@ -12,7 +12,7 @@ class ClassInstance(object):
     """Represents a particular Morea Class Instance. Parses the markdown files in the morea directory and keeps track
     of the modules, outcomes, readings, experiences, assessments, and prerequisites."""
 
-    def __init__(self, moreaPath):
+    def __init__(self, moreaPath, semesterPath=None):
         """Parses the morea directory in moreaPath to create the Entities."""
         goodEnding = False
         if moreaPath.endswith("morea"):
@@ -114,10 +114,12 @@ class ClassInstance(object):
                     self.homeworks.append(e)
         except KeyError:
             print "No experineces?"
-        self.semesterFactory = SemesterFactory()
+        self.semesterFactory = SemesterFactory(semesterPath)
 
     def __str__(self):
-        return "{0}: {1} modules | {2} outcomes | {3} readings | {4} experiences | {5} assessments ".format(self.getSemester().name,
+        return "{0} {1}: {2} modules | {3} outcomes | {4} readings | {5} experiences | {6} assessments ".format(
+            self.getSemester().name,
+            self.getMeetingDays(),
             self.getNumModules(),
                                                                                                        self.getNumOutcomes(),
                                                                                                        self.getNumReadings(),

@@ -1,6 +1,5 @@
 import unittest
 from ClassInstance import ClassInstance
-from Entity import Types
 from MoveClassInstance import MoveClassInstance
 from SemesterFactory import SemesterFactory
 
