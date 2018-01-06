@@ -25,6 +25,7 @@ class MoveClassInstance(object):
                 self.moveToMW = True
                 self.moveToTR = False
                 self.moveDay = True
+        print ci, self.moveToMW, self.moveToTR
 
     def dayOffset(self, entity):
         """Calculates the day offset for the given entity."""

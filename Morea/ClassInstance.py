@@ -187,7 +187,7 @@ class ClassInstance(object):
     def isTR(self):
         """Returns True if this class is a Monday Wednesday class."""
         days = self.getMeetingDays()
-        if len(days) == 2 and days[0] == "Tuesday" and days[1] == "Thursday":
+        if len(days) >= 2 and days[0] == "Tuesday" and days[1] == "Thursday":
             return True
         return False
 
