@@ -121,10 +121,10 @@ class ClassInstance(object):
             self.getSemester().name,
             self.getMeetingDays(),
             self.getNumModules(),
-                                                                                                       self.getNumOutcomes(),
-                                                                                                       self.getNumReadings(),
-                                                                                                       self.getNumExperiences(),
-                                                                                                       self.getNumAssessments())
+            self.getNumOutcomes(),
+            self.getNumReadings(),
+            self.getNumExperiences(),
+            self.getNumAssessments())
 
     def __repr__(self):
         return self.__str__()
@@ -189,6 +189,14 @@ class ClassInstance(object):
         days = self.getMeetingDays()
         if len(days) >= 2 and days[0] == "Tuesday" and days[1] == "Thursday":
             return True
+        return False
+
+    def isF(self):
+        """Returns True if this class is a Friday class."""
+        days = self.getMeetingDays()
+        if len(days) == 1:
+            if days[0] == "Friday":
+                return True
         return False
 
     def getSemester(self):
