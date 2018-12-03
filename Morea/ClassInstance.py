@@ -33,6 +33,7 @@ class ClassInstance(object):
                     startDate = None
                     endDate = None
                     published = False
+                    # print dirpath, dirnames, name
                     with open(join(dirpath, name)) as morea_file:
                         for line in morea_file:
                             if line.startswith('published'):
@@ -74,20 +75,21 @@ class ClassInstance(object):
                                         endDate = datetime.strptime(datestr, '%Y-%m-%dT%H:%M:%S')
                                     except ValueError:
                                         endDate = datetime.strptime(datestr, "%Y-%m-%dT%H:%M")
-                        #print id, title, type, startDate, endDate
+                        # print id, title, type, startDate, endDate
                         if self.startDate == None and startDate != None:
                             self.startDate = startDate
                         elif startDate != None and startDate < self.startDate:
                             self.startDate = startDate
-                        e = Entity(id, title, type, morea_file.name, startDate, endDate)
-                        # print e
-                        try:
-                            if self.entities[type] == None:
+                        if id != None and title != None and type != None:
+                            e = Entity(id, title, type, morea_file.name, startDate, endDate)
+                            # print e
+                            try:
+                                if self.entities[type] == None:
+                                    self.entities[type] = []
+                            except KeyError, err:
                                 self.entities[type] = []
-                        except KeyError, err:
-                            self.entities[type] = []
-                        if published:
-                            self.entities[type].append(e)
+                            if published:
+                                self.entities[type].append(e)
         # print self.entities
         self.readingDays = {}
         try:
