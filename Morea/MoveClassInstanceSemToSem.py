@@ -3,15 +3,14 @@ from datetime import timedelta
 from SemesterFactory import SemesterFactory
 
 
-class MoveClassInstance(object):
+class MoveClassInstanceSemToSem(object):
     """Moves a class instance from one semester to another. This updates the files inplace."""
-
-    def __init__(self, ci, newSemester, weekDays=None, semesterPath=None):
-        """Creates a new instance with the ClassInstance, newSemester and optional weekDays. If weekDays is not None,
-        the the class meetings will be updated to the new weekDays ('MW' or 'TR')."""
+    def __init__(self, ci, oldSemester, newSemester, weekDays=None, semesterPath=None):
+        """Creates a new instance with the ClassInstance, oldSemester, newSemester and optional weekDays. If weekDays is not None,
+the the class meetings will be updated to the new weekDays ('MW' or 'TR')."""
         self.factory = SemesterFactory(semesterPath)
         self.classInstance = ci
-        self.oldSemester = ci.getSemester()
+        self.oldSemester = oldSemester
         self.newSemester = newSemester
         self.moveDay = False
         self.moveToMW = False
@@ -94,7 +93,7 @@ class MoveClassInstance(object):
                 # for r in ci.entities[Types.reading.name]:
                 # MoveClassInstance.moveEntity(r, s1, newSemester, dayOffset)
         for e in ci.entities[Types.experience.name]:
-            MoveClassInstance.moveEntity(e, s1, newSemester, dayOffset)
+            MoveClassInstanceSemToSem.moveEntity(e, s1, newSemester, dayOffset)
 
     @staticmethod
     def moveEntity(entity, oldSemester, newSemester, dayOffset):

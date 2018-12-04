@@ -203,4 +203,5 @@ class ClassInstance(object):
 
     def getSemester(self):
         """Returns the Semester this course is in."""
+        # print self.startDate
         return self.semesterFactory.getSemester(self.startDate)
