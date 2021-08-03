@@ -1,7 +1,7 @@
 import json
 
 from datetime import datetime, timedelta
-from Semester import Semester
+from .Semester import Semester
 
 
 class SemesterFactory(object):

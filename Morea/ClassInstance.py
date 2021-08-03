@@ -4,8 +4,8 @@ from os.path import join
 
 from datetime import datetime
 
-from Entity import Entity, Types
-from SemesterFactory import SemesterFactory
+from .Entity import Entity, Types
+from .SemesterFactory import SemesterFactory
 
 
 class ClassInstance(object):
@@ -86,7 +86,7 @@ class ClassInstance(object):
                             try:
                                 if self.entities[type] == None:
                                     self.entities[type] = []
-                            except KeyError, err:
+                            except KeyError as err:
                                 self.entities[type] = []
                             if published:
                                 self.entities[type].append(e)
@@ -101,7 +101,7 @@ class ClassInstance(object):
                     except KeyError:
                         self.readingDays[day] = 1
         except KeyError:
-            print "No readings!?"
+            print("No readings!?")
         self.experienceDays = {}
         self.homeworks = []
         try:
@@ -115,7 +115,7 @@ class ClassInstance(object):
                 if e.isDueFridayEvening():
                     self.homeworks.append(e)
         except KeyError:
-            print "No experineces?"
+            print("No experineces?")
         self.semesterFactory = SemesterFactory(semesterPath)
 
     def __str__(self):

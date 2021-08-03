@@ -1,6 +1,6 @@
 from Entity import Types
 from datetime import timedelta
-from SemesterFactory import SemesterFactory
+from .SemesterFactory import SemesterFactory
 
 
 class MoveClassInstanceToFriday(object):

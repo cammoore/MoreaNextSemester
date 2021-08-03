@@ -136,13 +136,13 @@ class Entity(object):
                         try:
                             new_file.write(self.__processStartDateLine(line, delta))
                         except ValueError:
-                            print self.filePath, 'has an error '
+                            print(self.filePath, 'has an error ')
                             new_file.write(line)
                     elif line.startswith('morea_end_date') and self.endDate != None:
                         try:
                             new_file.write(self.__processEndDateLine(line, delta))
                         except ValueError:
-                            print self.filePath, 'has an error '
+                            print(self.filePath, 'has an error ')
                             new_file.write(line)
                     else:
                         new_file.write(line)
