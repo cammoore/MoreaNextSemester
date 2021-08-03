@@ -83,8 +83,8 @@ class SemesterFactory(object):
         if s1.hasBreak():
             if s2.hasBreak():
                 return s2.firstDay - s1.firstDay
-            elif week < s1.getWeek(s1.springBreak[0] + timedelta(days=7)):
-                return s2.firstDay - s1.firstDay
+            # elif week < s1.getWeek(s1.springBreak[0] + timedelta(days=7)):
+                # return s2.firstDay - s1.firstDay
             else:
                 return s2.firstDay - s1.firstDay - timedelta(days=7)
         else:
